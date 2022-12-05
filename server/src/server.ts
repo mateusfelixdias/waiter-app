@@ -2,7 +2,7 @@ import express from 'express';
 import { orders } from './routes/orders/routes';
 import { products } from './routes/products/routes';
 import { categories } from './routes/categories/routes';
-import { connection } from './database/connection/connection';
+import { connection } from './database/connection';
 
 const app = express();
 
