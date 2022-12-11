@@ -9,10 +9,10 @@ export async function read(request: Request, response: Response) {
   return response.status(status).json(result).end();
 }
 
-function handleRead(categories: any | []) {
-  if (!categories.length) {
+function handleRead(products: any | Array<[]>) {
+  if (!products.length) {
     return { result: 'Não têm nenhum produto cadastrado!', status: 404 };
   }
 
-  return { result: categories, status: 200 };
+  return { result: products, status: 200 };
 }
