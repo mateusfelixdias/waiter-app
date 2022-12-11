@@ -9,7 +9,7 @@ export async function read(request: Request, response: Response) {
   return response.status(status).json(result).end();
 }
 
-function handleRead(categories: any | []) {
+function handleRead(categories: any | Array<[]>) {
   if (!categories.length) {
     return { result: 'Não têm nenhuma categoria cadastrada!', status: 404 };
   }
