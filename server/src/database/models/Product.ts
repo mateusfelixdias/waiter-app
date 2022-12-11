@@ -4,7 +4,7 @@ import { IProduct } from '../../interfaces/Product';
 const productSchema = new Schema<IProduct>(
   {
     category: { type: Schema.Types.ObjectId, required: true, ref: 'Category' },
-    decription: { type: String, required: true },
+    description: { type: String, required: true },
     imagePath: { type: String, required: true },
     ingredients: {
       type: [
@@ -13,7 +13,8 @@ const productSchema = new Schema<IProduct>(
           name: { type: String, required: true },
         },
       ],
-      required: true,
+      required: false,
+      default: []
     },
     name: { type: String, required: true },
     price: { type: Number, required: true },
