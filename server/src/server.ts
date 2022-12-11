@@ -1,3 +1,4 @@
+import path from 'node:path';
 import express from 'express';
 import { orders } from './routes/orders/routes';
 import { products } from './routes/products/routes';
@@ -7,9 +8,10 @@ import { connection } from './database/connection';
 const app = express();
 
 app.use(express.json());
-app.use(categories);
 app.use(orders);
 app.use(products);
+app.use(categories);
+app.use('/uploads', express.static(path.resolve(__dirname, '../', 'uploads')));
 
 const mongoConnection: Promise<boolean> = connection();
 const port: number = 3000;
