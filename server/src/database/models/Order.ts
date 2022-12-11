@@ -1,9 +1,9 @@
 import { model, Schema } from 'mongoose';
 import { IOrder } from '../../interfaces/Order';
 
-const categorySchema = new Schema<IOrder>({
+const orderSchema = new Schema<IOrder>({
   table: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now },
+  createdAt: { type: Date, required: false, default: Date.now },
   status: {
     type: String,
     enum: ['WAITING', 'IN_PRODUCTION', 'DONE'],
@@ -24,4 +24,4 @@ const categorySchema = new Schema<IOrder>({
   },
 });
 
-export const Category = model<IOrder>('Category', categorySchema);
+export const Order = model<IOrder>('Order', orderSchema);
