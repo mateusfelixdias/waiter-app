@@ -1,0 +1,50 @@
+.board-conteiner {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.2rem;
+  flex-direction: column;
+  border: 0.1rem solid rgb(192, 191, 191);
+}
+
+.board-conteiner header {
+  gap: 0.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orders-conteiner {
+  width: 100%;
+  display: flex;
+  margin-top: 1.5rem;
+  flex-direction: column;
+}
+
+.orders-conteiner button {
+  width: 100%;
+  gap: 0.5rem;
+  display: flex;
+  height: 8.5rem;
+  align-items: center;
+  border-radius: 0.2rem;
+  flex-direction: column;
+  background-color: #fff;
+  justify-content: center;
+  border: 0.1rem solid rgb(192, 191, 191);
+}
+
+.orders-conteiner button + button {
+  margin-top: 1.5rem;
+}
+
+.orders-conteiner strong {
+  font-weight: 600;
+}
+
+.orders-conteiner span {
+  font-size: 1rem;
+  color: #666666;
+}
