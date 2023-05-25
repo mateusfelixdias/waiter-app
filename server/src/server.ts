@@ -1,13 +1,27 @@
 import path from 'node:path';
+import http from 'node:http';
 import express from 'express';
+import { Server } from 'socket.io';
 import { orders } from './routes/orders/routes';
+import { connection } from './database/connection';
 import { products } from './routes/products/routes';
 import { categories } from './routes/categories/routes';
-import { connection } from './database/connection';
 
 const app = express();
 
+const createdServer = http.createServer(app);
+export const io = new Server(createdServer);
+
+app.use((request, response, next) => {
+  response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader('Access-Control-Allow-Methods', '*');
+  response.setHeader('Access-Control-Allow-Headers', '*');
+
+  next();
+});
+
 app.use(express.json());
+
 app.use(orders);
 app.use(products);
 app.use(categories);
@@ -18,7 +32,7 @@ const port: number = 3000;
 
 const server = async () => {
   if (await mongoConnection) {
-    app.listen(port, () => {
+    createdServer.listen(port, () => {
       console.log(`Server is running on http://localhost:${port}`);
     });
 
